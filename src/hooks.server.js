@@ -20,7 +20,9 @@ export const handle = async ({ event, resolve }) => {
 
     if (event.locals.pb.authStore.isValid && event.locals.pb.authStore.model.collectionId) {
       try {
-        await event.locals.pb.collection('users').authRefresh();
+        if (event.locals.pb.authStore.model.collectionName === 'users') {
+          await event.locals.pb.collection('users').authRefresh();
+        }
       } catch (error) {
         console.log(error);
         event.cookies.delete('pb_auth', { path: '/' });
