@@ -5,7 +5,7 @@ export const load = ({ locals }) => {
     if (locals.pb.authStore.model.collectionName === 'users') {
       throw redirect(303, '/');
     } else if (locals.pb.authStore.model.collectionName === '_superusers') {
-      throw redirect(303, '/admin/dashboard');
+      throw redirect(303, '/admin/general-settings');
     }
   }
 };
@@ -21,6 +21,6 @@ export const actions = {
       throw error(500, 'Er is iets mis gegaan.');
     }
 
-    throw redirect(303, '/admin/dashboard');
+    throw redirect(303, '/admin/general-settings');
   }
 };

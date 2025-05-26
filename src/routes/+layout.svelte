@@ -4,9 +4,12 @@
   import { faFacebook, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';
   import { config } from '@fortawesome/fontawesome-svg-core';
   import '@fortawesome/fontawesome-svg-core/styles.css';
+  import { Toaster } from 'svelte-french-toast';
 
   config.autoAddCss = false;
 </script>
+
+<Toaster />
 
 <div class="layout">
   <div class="navbar bg-base-100 md:px-48">

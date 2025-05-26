@@ -1,4 +1,6 @@
 <script>
+  import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
+  import { faCogs } from '@fortawesome/free-solid-svg-icons';
   import { page } from '$app/stores';
   import { dev } from '$app/environment';
   import { env } from '$env/dynamic/public';
@@ -7,9 +9,9 @@
 
   const navigation = [
     {
-      title: 'Dashboard',
-      href: '/admin/dashboard',
-      rtb: false
+      title: 'Algemene instellingen',
+      href: '/admin/general-settings',
+      icon: faCogs
     }
   ];
 </script>
@@ -28,6 +30,28 @@
   </div>
 
   <div class="px-32 py-8">
-    <slot />
+    <div class="flex h-full w-full flex-col items-center space-x-4 md:flex-row md:items-start">
+      <ul
+        class="menu rounded-box border-primary bg-base-100 text-primary h-fit
+    w-56 min-w-max border-2 shadow-sm"
+      >
+        <h3 class="title mb-4 mt-2 text-center text-3xl font-bold">BSG Admin</h3>
+        {#each navigation as navItem}
+          <li>
+            <a
+              href={navItem.href}
+              class="title hover:text-primary text-lg hover:bg-[#e7e7e6]
+                {$page.url.pathname.startsWith(navItem.href) ? 'bg-primary text-white' : ''}"
+            >
+              <FontAwesomeIcon icon={navItem.icon} />
+              {navItem.title}
+            </a>
+          </li>
+        {/each}
+      </ul>
+      <div class="w-full">
+        <slot />
+      </div>
+    </div>
   </div>
 </div>
