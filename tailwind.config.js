@@ -12,7 +12,8 @@ export default {
     themes: [
       {
         corporate: {
-          ...require('daisyui/src/theming/themes')['[data-theme=corporate]']
+          ...require('daisyui/src/theming/themes')['[data-theme=corporate]'],
+          primary: '#b70000'
         }
       }
     ]
