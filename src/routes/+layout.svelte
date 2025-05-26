@@ -5,9 +5,23 @@
   import { config } from '@fortawesome/fontawesome-svg-core';
   import '@fortawesome/fontawesome-svg-core/styles.css';
   import { Toaster } from 'svelte-french-toast';
+  import { page } from '$app/stores';
 
   config.autoAddCss = false;
+
+  export let data;
+
+  $: path = $page.url.pathname;
+  $: title =
+    data.pageTitles
+      .filter((page) => path.startsWith(page.path))
+      .sort((a, b) => b.path.length - a.path.length)
+      ?.at(0)?.title + ' • BSG' || 'BSG';
 </script>
+
+<svelte:head>
+  <title>{title}</title>
+</svelte:head>
 
 <Toaster />
 
