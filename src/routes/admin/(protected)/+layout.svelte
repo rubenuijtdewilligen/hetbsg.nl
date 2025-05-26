@@ -1,6 +1,6 @@
 <script>
   import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
-  import { faCogs } from '@fortawesome/free-solid-svg-icons';
+  import { faCogs, faPhotoFilm } from '@fortawesome/free-solid-svg-icons';
   import { page } from '$app/stores';
   import { dev } from '$app/environment';
   import { env } from '$env/dynamic/public';
@@ -12,6 +12,11 @@
       title: 'Algemene instellingen',
       href: '/admin/general-settings',
       icon: faCogs
+    },
+    {
+      title: 'Pagina afbeeldingen',
+      href: '/admin/page-pictures',
+      icon: faPhotoFilm
     }
   ];
 </script>
