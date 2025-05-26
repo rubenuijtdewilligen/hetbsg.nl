@@ -1,6 +1,6 @@
 <script>
   import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
-  import { faCogs, faPhotoFilm } from '@fortawesome/free-solid-svg-icons';
+  import { faCogs, faPhotoFilm, faUserGroup } from '@fortawesome/free-solid-svg-icons';
   import { page } from '$app/stores';
   import { dev } from '$app/environment';
   import { env } from '$env/dynamic/public';
@@ -17,6 +17,11 @@
       title: 'Pagina afbeeldingen',
       href: '/admin/page-pictures',
       icon: faPhotoFilm
+    },
+    {
+      title: 'Voorbeeldcommissies',
+      href: '/admin/example-committees',
+      icon: faUserGroup
     }
   ];
 </script>
