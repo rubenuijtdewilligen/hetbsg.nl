@@ -82,7 +82,7 @@
     </div>
   </div>
 
-  <div class="content py-8 md:px-48">
+  <div class="content">
     <slot></slot>
   </div>
 
