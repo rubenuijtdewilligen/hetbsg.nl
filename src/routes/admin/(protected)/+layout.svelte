@@ -1,6 +1,12 @@
 <script>
   import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
-  import { faCogs, faFolder, faPhotoFilm, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+  import {
+    faCamera,
+    faCogs,
+    faFolder,
+    faPhotoFilm,
+    faUserGroup
+  } from '@fortawesome/free-solid-svg-icons';
   import { page } from '$app/stores';
   import { dev } from '$app/environment';
   import { env } from '$env/dynamic/public';
@@ -27,6 +33,11 @@
       title: 'Bestanden',
       href: '/admin/files',
       icon: faFolder
+    },
+    {
+      title: 'Foto albums',
+      href: '/admin/photo-albums',
+      icon: faCamera
     }
   ];
 </script>
