@@ -1,6 +1,6 @@
 <script>
   import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
-  import { faCogs, faPhotoFilm, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+  import { faCogs, faFolder, faPhotoFilm, faUserGroup } from '@fortawesome/free-solid-svg-icons';
   import { page } from '$app/stores';
   import { dev } from '$app/environment';
   import { env } from '$env/dynamic/public';
@@ -22,6 +22,11 @@
       title: 'Voorbeeldcommissies',
       href: '/admin/example-committees',
       icon: faUserGroup
+    },
+    {
+      title: 'Bestanden',
+      href: '/admin/files',
+      icon: faFolder
     }
   ];
 </script>
@@ -42,15 +47,15 @@
   <div class="px-32 py-8">
     <div class="flex h-full w-full flex-col items-center space-x-4 md:flex-row md:items-start">
       <ul
-        class="menu rounded-box border-primary bg-base-100 text-primary h-fit
-    w-56 min-w-max border-2 shadow-sm"
+        class="menu h-fit w-56 min-w-max rounded-box border-2
+    border-primary bg-base-100 text-primary shadow-sm"
       >
         <h3 class="title mb-4 mt-2 text-center text-3xl font-bold">BSG Admin</h3>
         {#each navigation as navItem}
           <li>
             <a
               href={navItem.href}
-              class="title hover:text-primary text-lg hover:bg-[#e7e7e6]
+              class="title text-lg hover:bg-[#e7e7e6] hover:text-primary
                 {$page.url.pathname.startsWith(navItem.href) ? 'bg-primary text-white' : ''}"
             >
               <FontAwesomeIcon icon={navItem.icon} />
