@@ -6,6 +6,7 @@
     faFolder,
     faMoneyBill,
     faPhotoFilm,
+    faSuitcase,
     faTrophy,
     faUserGroup
   } from '@fortawesome/free-solid-svg-icons';
@@ -50,6 +51,11 @@
       title: 'Competities',
       href: '/admin/competitions',
       icon: faTrophy
+    },
+    {
+      title: 'Besturen',
+      href: '/admin/boards',
+      icon: faSuitcase
     }
   ];
 </script>
