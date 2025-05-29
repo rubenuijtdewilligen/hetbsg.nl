@@ -28,7 +28,7 @@
   </p>
 </div>
 
-<div class="flex flex-col items-center md:px-32 lg:px-64">
+<div class="mb-8 flex flex-col items-center md:px-32 lg:px-64">
   <h2 class="my-8 text-3xl font-bold">Winnaars Rikfinale</h2>
 
   <div class="space-y-1 text-xl text-gray-800">
