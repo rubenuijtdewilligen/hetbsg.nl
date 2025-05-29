@@ -6,6 +6,7 @@
     faFolder,
     faMoneyBill,
     faPhotoFilm,
+    faTrophy,
     faUserGroup
   } from '@fortawesome/free-solid-svg-icons';
   import { page } from '$app/stores';
@@ -44,6 +45,11 @@
       title: 'Verkoop',
       href: '/admin/products',
       icon: faMoneyBill
+    },
+    {
+      title: 'Competities',
+      href: '/admin/competitions',
+      icon: faTrophy
     }
   ];
 </script>

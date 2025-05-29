@@ -46,7 +46,7 @@
           </svg>
         </summary>
         <ul
-          class="menu dropdown-content menu-sm rounded-box bg-base-100 z-[1] mt-3 w-52 p-2 shadow"
+          class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
         >
           <li><a href="/">Home</a></li>
 
@@ -65,7 +65,7 @@
 
           <li><a href="https://bsg100jaar.nl">BSG 100 Jaar</a></li>
           <li><a href="/fotos">Foto's</a></li>
-          <li><a href="/rikstand">Rikstand</a></li>
+          <li><a href="/competities">Competities</a></li>
           <li><a href="/verkoop">Verkoop</a></li>
           <li><a href="/contact">Contact</a></li>
         </ul>
@@ -80,7 +80,7 @@
         <li>
           <div class="dropdown dropdown-bottom dropdown-hover">
             <summary><a href="/vereniging">Vereniging</a></summary>
-            <ul class="menu dropdown-content rounded-box bg-base-100 z-[1] w-52 p-2 shadow">
+            <ul class="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow">
               <li><a href="/vereniging/geschiedenis">Geschiedenis</a></li>
               <li><a href="/vereniging/bestuur">Bestuur</a></li>
               <li><a href="/vereniging/commissies">Commissies</a></li>
@@ -92,7 +92,7 @@
 
         <li><a href="https://bsg100jaar.nl">BSG 100 Jaar</a></li>
         <li><a href="/fotos">Foto's</a></li>
-        <li><a href="/rikstand">Rikstand</a></li>
+        <li><a href="/competities">Competities</a></li>
         <li><a href="/verkoop">Verkoop</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
