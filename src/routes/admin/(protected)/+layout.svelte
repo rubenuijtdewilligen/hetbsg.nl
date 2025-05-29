@@ -4,6 +4,7 @@
     faCamera,
     faCogs,
     faFolder,
+    faMoneyBill,
     faPhotoFilm,
     faUserGroup
   } from '@fortawesome/free-solid-svg-icons';
@@ -38,6 +39,11 @@
       title: 'Foto albums',
       href: '/admin/photo-albums',
       icon: faCamera
+    },
+    {
+      title: 'Verkoop',
+      href: '/admin/products',
+      icon: faMoneyBill
     }
   ];
 </script>
