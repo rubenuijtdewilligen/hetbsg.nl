@@ -6,6 +6,7 @@
     faFolder,
     faMoneyBill,
     faPhotoFilm,
+    faPlaceOfWorship,
     faSquare,
     faSuitcase,
     faTrophy,
@@ -62,6 +63,11 @@
       title: 'Tegeltjes',
       href: '/admin/tiles',
       icon: faSquare
+    },
+    {
+      title: 'Kapellen',
+      href: '/admin/chapels',
+      icon: faPlaceOfWorship
     }
   ];
 </script>
