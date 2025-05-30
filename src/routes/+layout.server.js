@@ -3,6 +3,7 @@ export const load = async ({ locals }) => {
     { path: '/', title: 'Home' },
     { path: '/vereniging', title: 'Vereniging' },
     { path: '/vereniging/geschiedenis', title: 'Geschiedenis' },
+    { path: '/vereniging/geschiedenis/tegeltjes', title: 'Tegeltjes' },
     { path: '/vereniging/bestuur', title: 'Bestuur' },
     { path: '/vereniging/commissies', title: 'Commissies' },
     { path: '/vereniging/activiteiten', title: 'Activiteiten' },

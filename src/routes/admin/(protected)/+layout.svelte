@@ -6,6 +6,7 @@
     faFolder,
     faMoneyBill,
     faPhotoFilm,
+    faSquare,
     faSuitcase,
     faTrophy,
     faUserGroup
@@ -56,6 +57,11 @@
       title: 'Besturen',
       href: '/admin/boards',
       icon: faSuitcase
+    },
+    {
+      title: 'Tegeltjes',
+      href: '/admin/tiles',
+      icon: faSquare
     }
   ];
 </script>
