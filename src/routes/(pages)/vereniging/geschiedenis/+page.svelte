@@ -263,7 +263,6 @@
     verwachte vrijheid (3).
   </p>
   <h2 class="my-2 text-xl font-bold">Wederopbouw en vooruitgang</h2>
-  <h2 class="my-2 text-xl font-bold">Initiatief kapellenbouw</h2>
   <p>
     Het bestuur, dat sinds 1943 het Gilde leidde en in die tijd ook zo voortreffelijk het
     onderduiken en verzorgen van de naar het Zuiden van ons land gevluchte studenten op zich nam,
@@ -409,10 +408,13 @@
   <h2 class="my-2 text-xl font-bold">Verwijzingen</h2>
   <p>
     1. Prof. dr. Frans van der Ven, Lustrumboek 1986, "Van Geestelijke Bezinning en Brandewijn."
-    pag. 16-35. 2. J.L.G. van Oudheusden, Reünistenperiodiek, jaargang 2 (1989), 2 pag. 20-25. 3.
-    Gerard Freeman, Lustrumboek 1986, "Van Geestelijke Bezinning en Brandewijn." pag. 36-40. 4. Ad
-    Overing, Het Brabants Studenten Gilde van Onze Lieve Vrouw, juni 1946, pag. 3-11. 5.
-    Lustrumkrant 1981, "Een Bloemlezing uit 55 jaar BSG." 6. BSG-verslagen over de jaren '52, '55,
-    '55-'56, en '57-'58. 7. Drs. H.A.L.A. Bogers, moderator BSG., Verslag Paascongres 1966.
+    pag. 16-35. <br />
+    2. J.L.G. van Oudheusden, Reünistenperiodiek, jaargang 2 (1989), 2 pag. 20-25. <br />
+    3. Gerard Freeman, Lustrumboek 1986, "Van Geestelijke Bezinning en Brandewijn." pag. 36-40.
+    <br />
+    4. Ad Overing, Het Brabants Studenten Gilde van Onze Lieve Vrouw, juni 1946, pag. 3-11. <br />
+    5. Lustrumkrant 1981, "Een Bloemlezing uit 55 jaar BSG." <br />
+    6. BSG-verslagen over de jaren '52, '55, '55-'56, en '57-'58. <br />
+    7. Drs. H.A.L.A. Bogers, moderator BSG., Verslag Paascongres 1966. <br />
   </p>
 </div>
