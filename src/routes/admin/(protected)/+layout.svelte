@@ -2,6 +2,7 @@
   import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
   import {
     faCamera,
+    faChampagneGlasses,
     faCogs,
     faFolder,
     faMoneyBill,
@@ -68,6 +69,11 @@
       title: 'Kapellen',
       href: '/admin/chapels',
       icon: faPlaceOfWorship
+    },
+    {
+      title: 'Activiteiten',
+      href: '/admin/activities',
+      icon: faChampagneGlasses
     }
   ];
 </script>
