@@ -60,15 +60,15 @@
 </script>
 
 <p>
-  Op de commissies pagina staat een linkje naar een PDF-bestand met alle commissies. Deze kan
-  aangepast worden onder <a href="/admin/files" class="link link-primary">Bestanden</a> in deze admin
-  omgeving.
+  Op de pagina <a href="/vereniging/commissies" class="link link-primary">Commissies</a> staat een
+  linkje naar een PDF-bestand met alle commissies. Deze kan aangepast worden onder
+  <a href="/admin/files" class="link link-primary">Bestanden</a> in deze admin omgeving.
 </p>
 
 <p class="my-2">
   Onder die link staan een aantal voorbeelden van commissies. Die kan je hier toevoegen of
   verwijderen. Je kan ze niet aanpassen, maar wel verwijderen en een verbeterde versie toevoegen.
-  Wijzigingen zijn meteen zichtbaar op de commissies pagina.
+  Wijzigingen zijn meteen zichtbaar op de pagina.
 </p>
 
 <Modal label="create-example-committee" checked={addModalOpen}>
@@ -90,17 +90,17 @@
 <p class="my-2">Voorbeeldcommissies die nu op de website staan, op alfabetische volgorde:</p>
 
 {#each data.exampleCommittees as exampleCommittee}
-  <div class="border-primary mb-2 rounded-xl border-2 bg-white p-4">
+  <div class="mb-2 rounded-xl border-2 border-primary bg-white p-4">
     <div class="flex flex-row items-center justify-between">
       <div>
-        <h2 class="text-primary text-2xl font-bold">{exampleCommittee.name}</h2>
+        <h2 class="text-2xl font-bold text-primary">{exampleCommittee.name}</h2>
         <p><b>Doel:</b> {exampleCommittee.goal}</p>
         <p><b>Motto:</b> {exampleCommittee.motto}</p>
       </div>
       <form action="?/deleteExampleCommittee" method="POST" class="mr-2" use:enhance={submitDelete}>
         <input type="hidden" name="id" value={exampleCommittee.id} />
         <button type="submit" disabled={loading || activeDeleteModal === exampleCommittee.id}>
-          <FontAwesomeIcon icon={faTrash} class="text-primary text-2xl" />
+          <FontAwesomeIcon icon={faTrash} class="text-2xl text-primary" />
         </button>
       </form>
     </div>
