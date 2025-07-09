@@ -15,7 +15,7 @@
     />
 
     <p class="text-center text-gray-800">
-      van links naar rechts:<br />
+      <i>van links naar rechts:</i><br />
       {@html board.vlnr}
     </p>
   {/each}
