@@ -61,8 +61,7 @@
 
 <p>
   Hier kan je de links naar foto albums op de pagina
-  <a href="/fotos" class="link link-primary"> Foto's </a> aanpassen. De foto albums staan opgeslagen
-  in Google Photos. Het wachtwoord van dat Google account is te vinden in het draaiboek van de WebCie.
+  <a href="/fotos" class="link link-primary"> Foto's </a> aanpassen.
 </p>
 
 <Modal label="add-photo-album" checked={addModalOpen}>
