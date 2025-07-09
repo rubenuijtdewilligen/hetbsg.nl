@@ -67,7 +67,7 @@
 
 <p>
   Hier kan je de inhoud van de pagina <a href="/vereniging/activiteiten" class="link link-primary">
-    Activiteit
+    Activiteiten
   </a> aanpassen. Je kan hier activiteiten toevoegen of verwijderen. Je kan ze niet aanpassen, maar wel
   verwijderen en een verbeterde versie toevoegen. Wijzigingen zijn meteen zichtbaar op de pagina.
 </p>
