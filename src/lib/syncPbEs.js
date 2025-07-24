@@ -21,7 +21,7 @@ async function expandRelations(item) {
       const collectionName = rel.endsWith('s') ? rel : rel + 's';
 
       try {
-        const record = await pb.collection(collectionName).getOne(item[rel]);
+        const record = await pb.collection('media_' + collectionName).getOne(item[rel]);
         expanded[rel] = record.name;
       } catch {
         expanded[rel] = null;
@@ -36,7 +36,7 @@ async function expandRelations(item) {
       const filter = item[rel].map((id) => `id="${id}"`).join(' || ');
 
       try {
-        const records = await pb.collection(rel).getFullList(200, { filter });
+        const records = await pb.collection('media_' + rel).getFullList(200, { filter });
         expanded[rel] = records.map((r) => r.name);
       } catch {
         expanded[rel] = [];
@@ -58,6 +58,8 @@ export const syncMediaItems = async () => {
   for (const item of mediaItems) {
     const expanded = await expandRelations(item);
 
+    console.log(expanded);
+
     const doc = {
       pocketbaseId: item.id,
       title: item.title,
@@ -71,6 +73,8 @@ export const syncMediaItems = async () => {
       boards: expanded.boards,
       file: getFileUrl(item.collectionId, item.id, item.file)
     };
+
+    console.log(doc);
 
     try {
       await es.index({
