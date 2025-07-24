@@ -6,12 +6,12 @@ export const getFileUrl = (collection, recordId, filename) => {
 
 export const translateFacetFields = (field) => {
   switch (field) {
-    case 'object_types':
-      return 'Object Types';
-    case 'creators':
-      return 'Makers';
-    case 'places':
-      return 'Plaatsen';
+    case 'object_type':
+      return 'Object Type';
+    case 'creator':
+      return 'Maker';
+    case 'place':
+      return 'Plaats';
     case 'subjects':
       return 'Onderwerpen';
     case 'persons':

@@ -4,10 +4,13 @@ import { env as privateEnv } from '$env/dynamic/private';
 
 const es = new Client({
   node: publicEnv.PUBLIC_ELASTICSEARCH_URL,
-  auth: { username: privateEnv.ELASTICSEARCH_USERNAME, password: privateEnv.ELASTICSEARCH_PASSWORD }
+  auth: {
+    username: privateEnv.ELASTICSEARCH_USERNAME,
+    password: privateEnv.ELASTICSEARCH_PASSWORD
+  }
 });
 
-const FACET_FIELDS = ['object_types', 'creators', 'subjects', 'persons', 'boards', 'places'];
+const FACET_FIELDS = ['object_type', 'creator', 'subjects', 'persons', 'boards', 'place'];
 
 function getFilters(url) {
   const filters = {};
@@ -46,8 +49,10 @@ export const GET = async ({ url }) => {
   };
 
   Object.entries(filters).forEach(([field, values]) => {
-    esQuery.body.query.bool.filter.push({
-      terms: { [`${field}.keyword`]: values }
+    values.forEach((value) => {
+      esQuery.body.query.bool.filter.push({
+        term: { [`${field}.keyword`]: value }
+      });
     });
   });
 

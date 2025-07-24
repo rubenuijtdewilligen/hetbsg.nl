@@ -10,6 +10,7 @@
   let facets = data.facets;
 
   let debounceTimeout;
+  let searchInputRef;
 
   function buildSearchUrl() {
     const params = new URLSearchParams();
@@ -66,6 +67,11 @@
       console.error('Fout bij ophalen resultaten', await res.text());
     }
   }
+
+  function clearAllFilters() {
+    selectedFilters = {};
+    doSearch();
+  }
 </script>
 
 <div class="flex min-h-screen gap-6 p-6">
@@ -98,7 +104,7 @@
   </aside>
 
   <main class="flex-1">
-    <form class="mb-8 flex gap-3" on:submit|preventDefault={() => doSearch()}>
+    <form class="mb-4 flex gap-3" on:submit|preventDefault={() => doSearch()}>
       <input
         bind:this={searchInputRef}
         type="search"
@@ -113,36 +119,38 @@
     {#if results.length === 0}
       <p class="mt-12 text-center text-gray-500">Geen resultaten gevonden.</p>
     {:else}
-      <ul class="space-y-6">
-        {#each results as item}
-          <li class="rounded-lg bg-base-100 p-6 shadow transition hover:shadow-lg">
-            <h3 class="text-2xl font-semibold">{item.title}</h3>
-            <p class="mb-2 text-sm text-gray-400">{item.date}</p>
-            <p class="mb-3">{item.description}</p>
-            <img src={item.file} alt="" class="my-2 max-w-64 rounded-xl" />
-            <div class="space-x-4 text-sm text-gray-600">
-              {#if item.object_type}
-                <span><strong>Type:</strong> {item.object_type}</span>
-              {/if}
-              {#if item.creator}
-                <span><strong>Maker:</strong> {item.creator}</span>
-              {/if}
-              {#if item.place}
-                <span><strong>Plaats:</strong> {item.place}</span>
-              {/if}
-              {#if item.subjects?.length}
-                <span><strong>Onderwerpen:</strong> {item.subjects.join(', ')}</span>
-              {/if}
-              {#if item.persons?.length}
-                <span><strong>Personen:</strong> {item.persons.join(', ')}</span>
-              {/if}
-              {#if item.boards?.length}
-                <span><strong>Besturen:</strong> {item.boards.join(', ')}</span>
-              {/if}
-            </div>
-          </li>
+      <div class="flex flex-row items-center justify-between">
+        <p class="text-2xl font-bold">
+          Gevonden: <span class="text-primary">{results.length}</span>
+        </p>
+
+        <button class="btn btn-primary" on:click={clearAllFilters}> Alle filters wissen </button>
+      </div>
+
+      <div class="mb-6 mt-4 flex w-full flex-row items-center space-x-3 rounded-lg bg-base-200 p-4">
+        <p class="text-lg font-semibold">Filter(s):</p>
+
+        {#each Object.entries(selectedFilters) as [field, values]}
+          <span class="badge badge-primary mr-2">
+            {translateFacetFields(field)}: {values.join(', ')}
+          </span>
         {/each}
-      </ul>
+
+        {#if Object.keys(selectedFilters).length === 0}
+          <span class="text-sm text-gray-500">Geen filters actief</span>
+        {/if}
+      </div>
+
+      <div class="flex flex-wrap space-x-4 space-y-4">
+        {#each results as item}
+          <a href={`/archief/beeldbank/${item.pocketbaseId}`}>
+            <div class="max-w-48 rounded-lg bg-base-200 p-2">
+              <img src={item.file} alt="" class="mb-2 max-h-48 rounded-lg" />
+              <p class="link link-primary">{item.title}</p>
+            </div>
+          </a>
+        {/each}
+      </div>
     {/if}
   </main>
 </div>
