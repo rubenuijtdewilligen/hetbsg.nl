@@ -4,18 +4,5 @@ export default {
 
   theme: {
     extend: {}
-  },
-
-  plugins: [require('daisyui')],
-
-  daisyui: {
-    themes: [
-      {
-        corporate: {
-          ...require('daisyui/src/theming/themes')['[data-theme=corporate]'],
-          primary: '#b70000'
-        }
-      }
-    ]
   }
 };
