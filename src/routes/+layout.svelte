@@ -46,7 +46,7 @@
           </svg>
         </summary>
         <ul
-          class="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-100 p-2 shadow"
+          class="menu dropdown-content menu-sm rounded-box bg-base-100 z-1 mt-3 w-52 p-2 shadow-sm"
         >
           <li><a href="/">Home</a></li>
 
@@ -74,13 +74,13 @@
     </div>
 
     <div class="navbar-center hidden flex-nowrap lg:flex">
-      <ul class="menu menu-horizontal whitespace-nowrap px-1">
+      <ul class="menu menu-horizontal px-1 whitespace-nowrap">
         <li><a href="/">Home</a></li>
 
         <li>
           <div class="dropdown dropdown-bottom dropdown-hover">
             <summary><a href="/vereniging">Vereniging</a></summary>
-            <ul class="menu dropdown-content z-[1] w-52 rounded-box bg-base-100 p-2 shadow">
+            <ul class="menu dropdown-content rounded-box bg-base-100 z-1 w-52 p-2 shadow-sm">
               <li><a href="/vereniging/geschiedenis">Geschiedenis</a></li>
               <li><a href="/vereniging/bestuur">Bestuur</a></li>
               <li><a href="/vereniging/commissies">Commissies</a></li>
@@ -103,11 +103,12 @@
     <slot></slot>
   </div>
 
-  <footer class="footer items-center bg-gray-800 p-4 text-white md:px-48">
+  <footer class="footer flex flex-row items-center bg-gray-800 p-4 text-white md:px-48">
     <aside class="grid-flow-col items-center">
       <img src="/logo_transparent_white.svg" alt="Logo Het BSG" class="max-w-10" />
       <p>Copyright © {new Date().getFullYear()} - Alle rechten voorbehouden</p>
     </aside>
+
     <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
       <a
         href="https://www.instagram.com/hetbsg/"

@@ -75,13 +75,13 @@
 </script>
 
 <div class="flex min-h-screen gap-6 p-6">
-  <aside class="sticky top-6 w-72 self-start rounded-lg bg-[#e8e8e8] p-6">
+  <aside class="bg-base-300 sticky top-6 w-72 self-start rounded-lg p-6">
     <h2 class="mb-5 text-xl font-bold">Filters</h2>
     {#each Object.entries(facets) as [field, facetItems]}
       <section class="mb-6">
         <h3 class="mb-3 font-semibold capitalize">{translateFacetFields(field)}</h3>
         {#if facetItems.length === 0}
-          <p class="text-sm italic text-gray-500">Geen opties</p>
+          <p class="text-sm text-gray-500 italic">Geen opties</p>
         {:else}
           <ul class="max-h-48 space-y-1 overflow-y-auto">
             {#each facetItems as item}
@@ -109,7 +109,7 @@
         bind:this={searchInputRef}
         type="search"
         placeholder="Zoek titel, omschrijving, datum..."
-        class="input input-bordered flex-grow"
+        class="input input-bordered grow"
         value={searchQuery}
         on:input={onSearchInput}
       />
@@ -127,9 +127,7 @@
         <button class="btn btn-primary" on:click={clearAllFilters}> Alle filters wissen </button>
       </div>
 
-      <div
-        class="mb-6 mt-4 flex w-full flex-row items-center space-x-3 rounded-lg bg-[#e8e8e8] p-4"
-      >
+      <div class="bg-base-300 mt-4 mb-6 flex w-full flex-row items-center space-x-3 rounded-lg p-4">
         <p class="text-lg font-semibold">Filter(s):</p>
 
         {#each Object.entries(selectedFilters) as [field, values]}
@@ -143,10 +141,10 @@
         {/if}
       </div>
 
-      <div class="flex flex-wrap space-x-4 space-y-4">
+      <div class="flex flex-wrap space-y-4 space-x-4">
         {#each results as item}
           <a href={`/archief/beeldbank/${item.pocketbaseId}`}>
-            <div class="max-w-48 rounded-lg bg-[#e8e8e8] p-2">
+            <div class="bg-base-300 max-w-48 rounded-lg p-2">
               <img src={item.file} alt="" class="mb-2 max-h-48 rounded-lg" />
               <p class="link link-primary">{item.title}</p>
             </div>

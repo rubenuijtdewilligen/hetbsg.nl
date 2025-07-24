@@ -79,7 +79,7 @@
 </script>
 
 <div class="m-16 rounded-xl bg-gray-300">
-  <div class="navbar px-32 shadow-sm">
+  <div class="navbar px-32 shadow-xs">
     <p class="flex-1">
       Je bent ingelogd als admin:&nbsp;<b>{data.user.email}</b>
     </p>
@@ -95,7 +95,7 @@
     <div class="flex h-full w-full flex-col items-center space-x-4 md:flex-row md:items-start">
       <ul
         class="menu h-fit w-56 min-w-max rounded-box border-2
-    border-primary bg-base-100 text-primary shadow-sm"
+    border-primary bg-base-100 text-primary shadow-xs"
       >
         <h3 class="title mb-4 mt-2 text-center text-3xl font-bold">BSG Admin</h3>
         {#each navigation as navItem}

@@ -20,7 +20,7 @@
         <img
           src={getFileUrl(activity.collectionId, activity.id, activity.image)}
           alt={activity.name}
-          class="w-max rounded shadow"
+          class="w-max rounded-sm shadow-sm"
         />
       </div>
     </div>
