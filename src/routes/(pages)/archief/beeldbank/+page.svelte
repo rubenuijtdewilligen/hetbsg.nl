@@ -75,7 +75,7 @@
 </script>
 
 <div class="flex min-h-screen gap-6 p-6">
-  <aside class="sticky top-6 w-72 self-start rounded-lg bg-base-200 p-6">
+  <aside class="sticky top-6 w-72 self-start rounded-lg bg-[#e8e8e8] p-6">
     <h2 class="mb-5 text-xl font-bold">Filters</h2>
     {#each Object.entries(facets) as [field, facetItems]}
       <section class="mb-6">
@@ -127,7 +127,9 @@
         <button class="btn btn-primary" on:click={clearAllFilters}> Alle filters wissen </button>
       </div>
 
-      <div class="mb-6 mt-4 flex w-full flex-row items-center space-x-3 rounded-lg bg-base-200 p-4">
+      <div
+        class="mb-6 mt-4 flex w-full flex-row items-center space-x-3 rounded-lg bg-[#e8e8e8] p-4"
+      >
         <p class="text-lg font-semibold">Filter(s):</p>
 
         {#each Object.entries(selectedFilters) as [field, values]}
@@ -144,7 +146,7 @@
       <div class="flex flex-wrap space-x-4 space-y-4">
         {#each results as item}
           <a href={`/archief/beeldbank/${item.pocketbaseId}`}>
-            <div class="max-w-48 rounded-lg bg-base-200 p-2">
+            <div class="max-w-48 rounded-lg bg-[#e8e8e8] p-2">
               <img src={item.file} alt="" class="mb-2 max-h-48 rounded-lg" />
               <p class="link link-primary">{item.title}</p>
             </div>
