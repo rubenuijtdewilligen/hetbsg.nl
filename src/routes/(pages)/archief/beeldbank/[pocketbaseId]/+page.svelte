@@ -54,7 +54,7 @@
 {#if data.mediaItem.file}
   <p class="font-semibold">Bestand:</p>
   <img
-    src={getFileURL(data.mediaItem.collectionId, data.mediaItem.id, data.mediaItem.file)}
+    src={getFileUrl(data.mediaItem.collectionId, data.mediaItem.id, data.mediaItem.file)}
     alt=""
     class="max-h-48"
   />
