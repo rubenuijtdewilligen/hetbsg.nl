@@ -1,4 +1,4 @@
-FROM node:lts-alpine AS sk-build
+FROM node:20.18.1-alpine AS sk-build
 WORKDIR /usr/src/app
 
 ARG TZ=Europe/Amsterdam
@@ -9,7 +9,7 @@ RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN npm install
 RUN npm run build
 
-FROM node:lts-alpine
+FROM node:20.18.1-alpine
 WORKDIR /usr/src/app
 
 ARG TZ=Europe/Amsterdam
