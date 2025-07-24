@@ -1,5 +1,5 @@
 <script>
-  import { getFileURL } from '$lib/util.js';
+  import { getFileUrl } from '$lib/util.js';
 
   export let data;
 
