@@ -2,7 +2,7 @@ import PocketBase from 'pocketbase';
 import { Client } from '@elastic/elasticsearch';
 import { env as publicEnv } from '$env/dynamic/public';
 import { env as privateEnv } from '$env/dynamic/private';
-import { getFileURL } from './util';
+import { getFileUrl } from './util';
 
 const pb = new PocketBase(publicEnv.PUBLIC_POCKETBASE_URL);
 const es = new Client({
@@ -69,7 +69,7 @@ export const syncMediaItems = async () => {
       subjects: expanded.subjects,
       persons: expanded.persons,
       boards: expanded.boards,
-      file: getFileURL(item.collectionId, item.id, item.file)
+      file: getFileUrl(item.collectionId, item.id, item.file)
     };
 
     try {
