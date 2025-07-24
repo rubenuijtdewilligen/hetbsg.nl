@@ -12,7 +12,8 @@ export const load = async ({ locals }) => {
     { path: '/fotos', title: "Foto's" },
     { path: '/competities', title: 'Competities' },
     { path: '/verkoop', title: 'Verkoop' },
-    { path: '/contact', title: 'Contact' }
+    { path: '/contact', title: 'Contact' },
+    { path: '/archief/beeldbank', title: 'Beeldbank' }
   ];
 
   if (locals.user) {
