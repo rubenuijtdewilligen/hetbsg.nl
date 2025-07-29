@@ -2,6 +2,7 @@ import { Client } from '@elastic/elasticsearch';
 import { env as publicEnv } from '$env/dynamic/public';
 import { env as privateEnv } from '$env/dynamic/private';
 import { error } from '@sveltejs/kit';
+import { syncMediaItems } from '$lib/syncPbEs.js';
 
 const es = new Client({
   node: publicEnv.PUBLIC_ELASTICSEARCH_URL,
@@ -72,11 +73,12 @@ export const load = async ({ url }) => {
 };
 
 export const actions = {
-  deleteSponsor: async ({ request, locals }) => {
+  deleteItem: async ({ request, locals }) => {
     const { id } = Object.fromEntries(await request.formData());
 
     try {
       await locals.pb.collection('media_items').delete(id);
+      await syncMediaItems();
     } catch (err) {
       throw error(err.status, err.message);
     }
