@@ -111,7 +111,8 @@ export const syncMediaItems = async () => {
       subjects: expanded.subjects,
       persons: expanded.persons,
       boards: expanded.boards,
-      file: getFileUrl(item.collectionId, item.id, item.file)
+      file: getFileUrl(item.collectionId, item.id, item.file),
+      addedToPocketbase: item.created
     };
 
     try {
