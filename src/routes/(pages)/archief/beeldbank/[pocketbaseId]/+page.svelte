@@ -2,8 +2,6 @@
   import { getFileUrl } from '$lib/util.js';
 
   export let data;
-
-  console.log('Media Item Data:', data.mediaItem);
 </script>
 
 {#if data.mediaItem.title}

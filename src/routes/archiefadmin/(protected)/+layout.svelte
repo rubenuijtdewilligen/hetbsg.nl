@@ -1,6 +1,6 @@
 <script>
   import { FontAwesomeIcon } from '@fortawesome/svelte-fontawesome';
-  import { faPhotoFilm } from '@fortawesome/free-solid-svg-icons';
+  import { faPhotoFilm, faPlusCircle } from '@fortawesome/free-solid-svg-icons';
   import { page } from '$app/stores';
   import { dev } from '$app/environment';
   import { env } from '$env/dynamic/public';
@@ -9,9 +9,14 @@
 
   const navigation = [
     {
-      title: 'Items',
+      title: 'Huidige databank',
       href: '/archiefadmin/items',
       icon: faPhotoFilm
+    },
+    {
+      title: 'Item toevoegen',
+      href: '/archiefadmin/add',
+      icon: faPlusCircle
     }
   ];
 </script>
