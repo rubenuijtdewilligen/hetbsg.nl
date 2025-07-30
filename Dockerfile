@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 ARG TZ=Europe/Amsterdam
 
 COPY . /usr/src/app
-RUN apk --no-cache add curl tzdata
+RUN apt-get update && apt-get install -y curl tzdata
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN npm install
 
@@ -22,7 +22,7 @@ FROM node:latest
 WORKDIR /usr/src/app
 
 ARG TZ=Europe/Amsterdam
-RUN apk --no-cache add curl tzdata
+RUN apt-get update && apt-get install -y curl tzdata
 RUN cp /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 COPY --from=sk-build /usr/src/app/package.json /usr/src/app/package.json
