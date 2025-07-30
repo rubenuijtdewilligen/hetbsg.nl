@@ -1,4 +1,4 @@
-FROM node:20.18.1-alpine AS sk-build
+FROM node:latest AS sk-build
 WORKDIR /usr/src/app
 
 ARG TZ=Europe/Amsterdam
@@ -18,7 +18,7 @@ ENV ELASTICSEARCH_PASSWORD=${ELASTICSEARCH_PASSWORD}
 
 RUN npm run build
 
-FROM node:20.18.1-alpine
+FROM node:latest
 WORKDIR /usr/src/app
 
 ARG TZ=Europe/Amsterdam
