@@ -103,13 +103,13 @@
     <slot></slot>
   </div>
 
-  <footer class="footer flex flex-row items-center bg-gray-800 p-4 text-white md:px-48">
-    <aside class="grid-flow-col items-center">
+  <footer class="flex items-center justify-between bg-gray-800 p-4 text-white md:px-48">
+    <aside class="flex items-center space-x-2">
       <img src="/logo_transparent_white.svg" alt="Logo Het BSG" class="max-w-10" />
       <p>Copyright © {new Date().getFullYear()} - Alle rechten voorbehouden</p>
     </aside>
 
-    <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+    <nav class="flex gap-4">
       <a
         href="https://www.instagram.com/hetbsg/"
         target="_blank"
