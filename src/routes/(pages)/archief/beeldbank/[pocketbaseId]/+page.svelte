@@ -145,4 +145,22 @@
       </div>
     {/if}
   </div>
+
+  {#if data.mediaItem.uploader}
+    <p>
+      <span class="font-semibold">Geüpload door:</span>
+      {data.mediaItem.expand.uploader.name}
+    </p>
+  {/if}
+  <p class="-mt-6">
+    <span class="font-semibold">Geüpload op:</span>
+    {new Date(data.mediaItem.created).toLocaleDateString(undefined, {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })} om {new Date(data.mediaItem.created).toLocaleTimeString(undefined, {
+      hour: '2-digit',
+      minute: '2-digit'
+    })}
+  </p>
 </div>
