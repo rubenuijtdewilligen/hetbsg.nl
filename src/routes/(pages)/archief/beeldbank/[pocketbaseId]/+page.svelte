@@ -1,14 +1,28 @@
 <script>
   import { getFileUrl } from '$lib/util.js';
   import { goto } from '$app/navigation';
+  import { writable } from 'svelte/store';
 
   export let data;
 
-  // Hulpfunctie om naar de zoekpagina te gaan
+  const previewOpen = writable(false);
+
   function goToSearch(field, value) {
     const encodedValue = encodeURIComponent(value);
     goto(`/archief/beeldbank?${field}=${encodedValue}`);
   }
+
+  function openPreview() {
+    previewOpen.set(true);
+  }
+
+  function closePreview() {
+    previewOpen.set(false);
+  }
+
+  const fileUrl = data.mediaItem.file
+    ? getFileUrl(data.mediaItem.collectionId, data.mediaItem.id, data.mediaItem.file)
+    : null;
 </script>
 
 <div class="mx-auto max-w-4xl">
@@ -16,34 +30,29 @@
 </div>
 
 <div class="mx-auto mb-10 max-w-4xl space-y-8 rounded-2xl bg-white p-6 shadow-lg">
-  <!-- Titel -->
   {#if data.mediaItem.title}
     <h1 class="text-3xl font-bold text-gray-800">{data.mediaItem.title}</h1>
   {/if}
 
-  <!-- Afbeelding -->
-  {#if data.mediaItem.file}
-    <div class="flex justify-center">
+  {#if fileUrl}
+    <!-- svelte-ignore a11y_no_noninteractive_element_interactions -->
+    <div class="flex flex-col items-center justify-center gap-2">
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
       <img
-        src={getFileUrl(data.mediaItem.collectionId, data.mediaItem.id, data.mediaItem.file)}
+        src={fileUrl}
         alt={data.mediaItem.title || 'Mediabestand'}
-        class="max-h-96 rounded-xl object-contain shadow-md"
+        class="max-h-96 cursor-pointer rounded-xl object-contain shadow-md"
+        on:click={openPreview}
       />
+      <a href={fileUrl} download class="btn btn-outline btn-sm mt-2"> 📥 Download afbeelding </a>
     </div>
   {/if}
 
-  <!-- Beschrijving -->
   {#if data.mediaItem.description}
     <p class="text-gray-700">{data.mediaItem.description}</p>
   {/if}
 
-  {#if data.mediaItem.date}
-    <p><span class="font-semibold">Datum:</span> {data.mediaItem.date}</p>
-  {/if}
-
-  <!-- Info sectie -->
   <div class="grid grid-cols-1 gap-x-10 gap-y-6 text-gray-700 md:grid-cols-2">
-    <!-- Object Types -->
     {#if data.mediaItem.expand.object_types?.length}
       <div>
         <p class="mb-1 font-semibold">Object Types:</p>
@@ -60,7 +69,6 @@
       </div>
     {/if}
 
-    <!-- Plaatsen -->
     {#if data.mediaItem.expand.places?.length}
       <div>
         <p class="mb-1 font-semibold">Plaatsen:</p>
@@ -77,7 +85,6 @@
       </div>
     {/if}
 
-    <!-- Makers -->
     {#if data.mediaItem.expand.creators?.length}
       <div>
         <p class="mb-1 font-semibold">Makers:</p>
@@ -94,7 +101,6 @@
       </div>
     {/if}
 
-    <!-- Onderwerpen -->
     {#if data.mediaItem.expand.subjects?.length}
       <div>
         <p class="mb-1 font-semibold">Onderwerpen:</p>
@@ -111,7 +117,6 @@
       </div>
     {/if}
 
-    <!-- Personen -->
     {#if data.mediaItem.expand.persons?.length}
       <div>
         <p class="mb-1 font-semibold">Personen:</p>
@@ -128,7 +133,6 @@
       </div>
     {/if}
 
-    <!-- Besturen -->
     {#if data.mediaItem.expand.boards?.length}
       <div>
         <p class="mb-1 font-semibold">Besturen:</p>
@@ -164,3 +168,18 @@
     })}
   </p>
 </div>
+
+<!-- svelte-ignore a11y_no_static_element_interactions -->
+{#if $previewOpen}
+  <!-- svelte-ignore a11y_click_events_have_key_events -->
+  <div
+    class="bg-opacity-80 fixed inset-0 z-50 flex items-center justify-center bg-black"
+    on:click={closePreview}
+  >
+    <img
+      src={fileUrl}
+      alt={data.mediaItem.title || 'Mediabestand'}
+      class="max-h-[90vh] max-w-[90vw] rounded-xl object-contain shadow-lg"
+    />
+  </div>
+{/if}
