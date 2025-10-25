@@ -15,7 +15,7 @@ export const actions = {
       place: formData.get('place') || null,
       subjects: formData.getAll('subjects'),
       persons: formData.getAll('persons'),
-      boards: formData.getAll('boards')
+      uploader: locals.user.id
     };
 
     try {

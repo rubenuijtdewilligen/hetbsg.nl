@@ -49,10 +49,10 @@
       on:change={(e) => (file = e.target.files[0])}
     />
 
-    <AutocompleteField label="Object Type" endpoint="object_types" bind:bindValue={object_type} />
+    <AutocompleteField label="Object type" endpoint="object_types" bind:bindValue={object_type} />
     <input type="hidden" name="object_type" value={object_type?.id} />
 
-    <AutocompleteField label="Maker" endpoint="creators" bind:bindValue={creator} />
+    <AutocompleteField label="Originele maker" endpoint="creators" bind:bindValue={creator} />
     <input type="hidden" name="creator" value={creator?.id} />
 
     <AutocompleteField label="Plaats" endpoint="places" bind:bindValue={place} />
@@ -72,6 +72,8 @@
     {#each boards as board}
       <input type="hidden" name="boards" value={board.id} />
     {/each}
+
+    <input type="hidden" name="" />
 
     <button class="btn btn-primary w-full" type="submit" name="action" value="create">
       Opslaan

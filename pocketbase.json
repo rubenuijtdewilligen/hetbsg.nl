@@ -161,8 +161,8 @@
       "body": "<p>Hello,</p>\n<p>Thank you for joining us at {APP_NAME}.</p>\n<p>Click on the button below to verify your email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-verification/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Verify</a>\n</p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
     },
     "resetPasswordTemplate": {
-      "subject": "Reset your {APP_NAME} password",
-      "body": "<p>Hello,</p>\n<p>Click on the button below to reset your password.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Reset password</a>\n</p>\n<p><i>If you didn't ask to reset your password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
+      "subject": "BSG archief admin wachtwoord aanmaken",
+      "body": "<p>Bij deze de link om je BSG archief admin wachtwoord aan te maken:</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Wachtwoord aanmaken</a>\n</p>"
     },
     "confirmEmailChangeTemplate": {
       "subject": "Confirm your {APP_NAME} new email address",
@@ -359,8 +359,8 @@
       "body": "<p>Hello,</p>\n<p>Thank you for joining us at {APP_NAME}.</p>\n<p>Click on the button below to verify your email address.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-verification/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Verify</a>\n</p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
     },
     "resetPasswordTemplate": {
-      "subject": "Reset your {APP_NAME} password",
-      "body": "<p>Hello,</p>\n<p>Click on the button below to reset your password.</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Reset password</a>\n</p>\n<p><i>If you didn't ask to reset your password, you can ignore this email.</i></p>\n<p>\n  Thanks,<br/>\n  {APP_NAME} team\n</p>"
+      "subject": "BSG archief admin wachtwoord aanmaken",
+      "body": "<p>Bij deze de link om je BSG archief admin wachtwoord aan te maken:</p>\n<p>\n  <a class=\"btn\" href=\"{APP_URL}/_/#/auth/confirm-password-reset/{TOKEN}\" target=\"_blank\" rel=\"noopener\">Wachtwoord aanmaken</a>\n</p>"
     },
     "confirmEmailChangeTemplate": {
       "subject": "Confirm your {APP_NAME} new email address",
@@ -1313,9 +1313,9 @@
     "id": "pbc_403674059",
     "listRule": "",
     "viewRule": "",
-    "createRule": null,
-    "updateRule": null,
-    "deleteRule": null,
+    "createRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "updateRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "deleteRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
     "name": "media_boards",
     "type": "base",
     "fields": [
@@ -1375,9 +1375,9 @@
     "id": "pbc_3884163622",
     "listRule": "",
     "viewRule": "",
-    "createRule": null,
-    "updateRule": null,
-    "deleteRule": null,
+    "createRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "updateRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "deleteRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
     "name": "media_creators",
     "type": "base",
     "fields": [
@@ -1437,9 +1437,9 @@
     "id": "pbc_251006600",
     "listRule": "",
     "viewRule": "",
-    "createRule": null,
-    "updateRule": null,
-    "deleteRule": null,
+    "createRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "updateRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "deleteRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
     "name": "media_items",
     "type": "base",
     "fields": [
@@ -1489,7 +1489,7 @@
         "hidden": false,
         "id": "file2359244304",
         "maxSelect": 1,
-        "maxSize": 0,
+        "maxSize": 104857600,
         "mimeTypes": [],
         "name": "file",
         "presentable": false,
@@ -1592,6 +1592,19 @@
         "type": "relation"
       },
       {
+        "cascadeDelete": false,
+        "collectionId": "pbc_1736455494",
+        "hidden": false,
+        "id": "relation1668006755",
+        "maxSelect": 1,
+        "minSelect": 0,
+        "name": "uploader",
+        "presentable": false,
+        "required": false,
+        "system": false,
+        "type": "relation"
+      },
+      {
         "hidden": false,
         "id": "autodate2990389176",
         "name": "created",
@@ -1619,9 +1632,9 @@
     "id": "pbc_3738147764",
     "listRule": "",
     "viewRule": "",
-    "createRule": null,
-    "updateRule": null,
-    "deleteRule": null,
+    "createRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "updateRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "deleteRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
     "name": "media_object_types",
     "type": "base",
     "fields": [
@@ -1681,9 +1694,9 @@
     "id": "pbc_717192427",
     "listRule": "",
     "viewRule": "",
-    "createRule": null,
-    "updateRule": null,
-    "deleteRule": null,
+    "createRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "updateRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "deleteRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
     "name": "media_persons",
     "type": "base",
     "fields": [
@@ -1743,9 +1756,9 @@
     "id": "pbc_357479053",
     "listRule": "",
     "viewRule": "",
-    "createRule": null,
-    "updateRule": null,
-    "deleteRule": null,
+    "createRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "updateRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "deleteRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
     "name": "media_places",
     "type": "base",
     "fields": [
@@ -1805,9 +1818,9 @@
     "id": "pbc_2209333810",
     "listRule": "",
     "viewRule": "",
-    "createRule": null,
-    "updateRule": null,
-    "deleteRule": null,
+    "createRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "updateRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
+    "deleteRule": "@request.auth.collectionName = '_superusers' || @request.auth.role = 'archief'",
     "name": "media_subjects",
     "type": "base",
     "fields": [
