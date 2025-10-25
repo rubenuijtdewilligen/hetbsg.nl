@@ -4,7 +4,11 @@
   export let data;
 
   $: path = $page.url.pathname;
-  $: title = data.pageTitles.find((page) => page.path.startsWith(path))?.title || 'BSG';
+  $: title =
+    data.pageTitles
+      .filter((page) => path.startsWith(page.path))
+      .sort((a, b) => b.path.length - a.path.length)
+      ?.at(0)?.title || 'BSG';
 </script>
 
 <div class="hero" style="background-image: url(/vlag.png);">
