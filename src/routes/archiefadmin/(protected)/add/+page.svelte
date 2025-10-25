@@ -64,19 +64,25 @@
       label="Archiefmappen"
       endpoint="archive_maps"
       bind:bindValue={archive_maps}
+      multiple
     />
     {#each archive_maps as archive_map}
       <input type="hidden" name="archive_maps" value={archive_map.id} />
     {/each}
 
-    <AutocompleteField label="Originele makers" endpoint="creators" bind:bindValue={creators} />
+    <AutocompleteField
+      label="Originele makers"
+      endpoint="creators"
+      bind:bindValue={creators}
+      multiple
+    />
     {#each creators as creator}
       <input type="hidden" name="creators" value={creator.id} />
     {/each}
 
-    <AutocompleteField label="Plaatsen" endpoint="places" bind:bindValue={places} />
+    <AutocompleteField label="Plaatsen" endpoint="places" bind:bindValue={places} multiple />
     {#each places as place}
-      <input type="hidden" name="places" value={[place].id} />
+      <input type="hidden" name="places" value={place.id} />
     {/each}
 
     <AutocompleteField label="Onderwerpen" endpoint="subjects" bind:bindValue={subjects} multiple />
