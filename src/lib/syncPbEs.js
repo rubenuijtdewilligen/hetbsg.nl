@@ -10,38 +10,27 @@ const es = new Client({
   auth: { username: privateEnv.ELASTICSEARCH_USERNAME, password: privateEnv.ELASTICSEARCH_PASSWORD }
 });
 
-const SINGLE_RELATIONS = ['object_type', 'creator', 'place'];
-const MULTI_RELATIONS = ['subjects', 'persons', 'boards'];
+const RELATIONS = ['object_types', 'creators', 'places', 'subjects', 'persons', 'boards'];
 
 async function expandRelations(item) {
   const expanded = {};
 
-  for (const rel of SINGLE_RELATIONS) {
-    if (item[rel]) {
-      const collectionName = rel.endsWith('s') ? rel : rel + 's';
+  for (const rel of RELATIONS) {
+    const value = item[rel];
 
-      try {
-        const record = await pb.collection('media_' + collectionName).getOne(item[rel]);
-        expanded[rel] = record.name;
-      } catch {
-        expanded[rel] = null;
-      }
-    } else {
-      expanded[rel] = null;
+    if (!Array.isArray(value) || value.length === 0) {
+      expanded[rel] = [];
+      continue;
     }
-  }
 
-  for (const rel of MULTI_RELATIONS) {
-    if (Array.isArray(item[rel]) && item[rel].length > 0) {
-      const filter = item[rel].map((id) => `id="${id}"`).join(' || ');
+    const collectionName = rel.endsWith('s') ? rel : rel + 's';
+    const filter = value.map((id) => `id="${id}"`).join(' || ');
 
-      try {
-        const records = await pb.collection('media_' + rel).getFullList(200, { filter });
-        expanded[rel] = records.map((r) => r.name);
-      } catch {
-        expanded[rel] = [];
-      }
-    } else {
+    try {
+      const records = await pb.collection('media_' + collectionName).getFullList(200, { filter });
+      expanded[rel] = records.map((r) => r.name);
+    } catch (err) {
+      console.error(`Error expanding ${rel}:`, err);
       expanded[rel] = [];
     }
   }
@@ -60,9 +49,7 @@ export const syncMediaItems = async () => {
     scroll: '1m',
     size: 1000,
     body: {
-      query: {
-        match_all: {}
-      }
+      query: { match_all: {} }
     }
   });
 
@@ -87,10 +74,7 @@ export const syncMediaItems = async () => {
   const toDelete = [...esIds].filter((id) => !pocketbaseIds.has(id));
   for (const id of toDelete) {
     try {
-      await es.delete({
-        index: 'media_items',
-        id
-      });
+      await es.delete({ index: 'media_items', id });
       console.log(`Deleted from Elasticsearch: ${id}`);
     } catch (err) {
       console.error(`Error deleting ${id}:`, err);
@@ -105,9 +89,9 @@ export const syncMediaItems = async () => {
       title: item.title,
       description: item.description,
       date: item.date,
-      object_type: expanded.object_type,
-      creator: expanded.creator,
-      place: expanded.place,
+      object_types: expanded.object_types,
+      creators: expanded.creators,
+      places: expanded.places,
       subjects: expanded.subjects,
       persons: expanded.persons,
       boards: expanded.boards,
@@ -128,4 +112,9 @@ export const syncMediaItems = async () => {
   }
 
   console.log(`\nDone syncing. Indexed: ${mediaItems.length}. Deleted: ${toDelete.length}.`);
+
+  return {
+    indexed: mediaItems.length,
+    deleted: toDelete.length
+  };
 };

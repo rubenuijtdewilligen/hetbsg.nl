@@ -2,8 +2,11 @@ import { syncMediaItems } from '$lib/syncPbEs';
 
 export const GET = async () => {
   try {
-    await syncMediaItems();
-    return new Response('Syncing successful', { status: 200 });
+    let stats = await syncMediaItems();
+    return new Response(JSON.stringify(stats), {
+      status: 200,
+      headers: { 'Content-Type': 'application/json' }
+    });
   } catch (error) {
     console.error('Error syncing:', error);
     return new Response('Error syncing', { status: 500 });

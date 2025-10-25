@@ -6,9 +6,9 @@
   let file;
   let date = '';
 
-  let object_type = null;
-  let creator = null;
-  let place = null;
+  let object_types = [];
+  let creators = [];
+  let places = [];
   let subjects = [];
   let persons = [];
   let boards = [];
@@ -49,14 +49,25 @@
       on:change={(e) => (file = e.target.files[0])}
     />
 
-    <AutocompleteField label="Object type" endpoint="object_types" bind:bindValue={object_type} />
-    <input type="hidden" name="object_type" value={object_type?.id} />
+    <AutocompleteField
+      label="Object types"
+      endpoint="object_types"
+      bind:bindValue={object_types}
+      multiple
+    />
+    {#each object_types as object_type}
+      <input type="hidden" name="object_types" value={object_type.id} />
+    {/each}
 
-    <AutocompleteField label="Originele maker" endpoint="creators" bind:bindValue={creator} />
-    <input type="hidden" name="creator" value={creator?.id} />
+    <AutocompleteField label="Originele makers" endpoint="creators" bind:bindValue={creators} />
+    {#each creators as creator}
+      <input type="hidden" name="creators" value={creator.id} />
+    {/each}
 
-    <AutocompleteField label="Plaats" endpoint="places" bind:bindValue={place} />
-    <input type="hidden" name="place" value={place?.id} />
+    <AutocompleteField label="Plaatsen" endpoint="places" bind:bindValue={places} />
+    {#each places as place}
+      <input type="hidden" name="places" value={[place].id} />
+    {/each}
 
     <AutocompleteField label="Onderwerpen" endpoint="subjects" bind:bindValue={subjects} multiple />
     {#each subjects as subject}

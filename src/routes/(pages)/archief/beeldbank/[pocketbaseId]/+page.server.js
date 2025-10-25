@@ -3,7 +3,7 @@ export const load = async ({ locals, params }) => {
 
   return {
     mediaItem: await locals.pb.collection('media_items').getOne(pocketbaseId, {
-      expand: 'object_type,creator,subjects,persons,boards,place'
+      expand: 'object_types,creators,subjects,persons,boards,places'
     })
   };
 };
