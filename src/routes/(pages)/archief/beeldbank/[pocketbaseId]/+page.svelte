@@ -148,6 +148,22 @@
         </div>
       </div>
     {/if}
+
+    {#if data.mediaItem.expand.archive_maps?.length}
+      <div>
+        <p class="mb-1 font-semibold">Archiefmappen:</p>
+        <div class="flex flex-wrap gap-2">
+          {#each data.mediaItem.expand.archive_maps as map}
+            <button
+              on:click={() => goToSearch('archive_maps', map.name)}
+              class="rounded-full bg-blue-100 px-3 py-1 text-sm text-blue-800 transition hover:cursor-pointer hover:bg-indigo-200"
+            >
+              {map.name}
+            </button>
+          {/each}
+        </div>
+      </div>
+    {/if}
   </div>
 
   {#if data.mediaItem.uploader}

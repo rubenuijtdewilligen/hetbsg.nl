@@ -18,6 +18,8 @@ export const translateFacetFields = (field) => {
       return 'Personen';
     case 'boards':
       return 'Besturen';
+    case 'archive_maps':
+      return 'Archiefmappen';
     default:
       return field;
   }

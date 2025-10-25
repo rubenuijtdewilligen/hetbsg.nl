@@ -10,7 +10,15 @@ const es = new Client({
   auth: { username: privateEnv.ELASTICSEARCH_USERNAME, password: privateEnv.ELASTICSEARCH_PASSWORD }
 });
 
-const RELATIONS = ['object_types', 'creators', 'places', 'subjects', 'persons', 'boards'];
+const RELATIONS = [
+  'object_types',
+  'creators',
+  'places',
+  'subjects',
+  'persons',
+  'boards',
+  'archive_maps'
+];
 
 async function expandRelations(item) {
   const expanded = {};
@@ -95,6 +103,7 @@ export const syncMediaItems = async () => {
       subjects: expanded.subjects,
       persons: expanded.persons,
       boards: expanded.boards,
+      archive_maps: expanded.archive_maps,
       file: getFileUrl(item.collectionId, item.id, item.file),
       addedToPocketbase: item.created
     };

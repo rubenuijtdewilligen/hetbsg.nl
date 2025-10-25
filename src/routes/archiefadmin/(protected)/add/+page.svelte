@@ -12,6 +12,7 @@
   let subjects = [];
   let persons = [];
   let boards = [];
+  let archive_maps = [];
 </script>
 
 <div class="max-w-2xl space-y-6">
@@ -57,6 +58,15 @@
     />
     {#each object_types as object_type}
       <input type="hidden" name="object_types" value={object_type.id} />
+    {/each}
+
+    <AutocompleteField
+      label="Archiefmappen"
+      endpoint="archive_maps"
+      bind:bindValue={archive_maps}
+    />
+    {#each archive_maps as archive_map}
+      <input type="hidden" name="archive_maps" value={archive_map.id} />
     {/each}
 
     <AutocompleteField label="Originele makers" endpoint="creators" bind:bindValue={creators} />

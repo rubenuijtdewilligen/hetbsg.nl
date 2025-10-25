@@ -7,7 +7,15 @@ const es = new Client({
   auth: { username: privateEnv.ELASTICSEARCH_USERNAME, password: privateEnv.ELASTICSEARCH_PASSWORD }
 });
 
-const FACET_FIELDS = ['object_types', 'creators', 'subjects', 'persons', 'boards', 'places'];
+const FACET_FIELDS = [
+  'object_types',
+  'creators',
+  'subjects',
+  'persons',
+  'boards',
+  'places',
+  'archive_maps'
+];
 
 function getFilters(url) {
   const filters = {};

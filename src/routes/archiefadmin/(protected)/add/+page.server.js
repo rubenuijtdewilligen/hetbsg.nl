@@ -10,11 +10,12 @@ export const actions = {
       description: formData.get('description'),
       date: formData.get('date'),
       file: formData.get('file'),
-      object_type: formData.get('object_type') || null,
-      creator: formData.get('creator') || null,
-      place: formData.get('place') || null,
+      object_types: formData.get('object_types'),
+      creators: formData.get('creators'),
+      places: formData.get('places'),
       subjects: formData.getAll('subjects'),
       persons: formData.getAll('persons'),
+      archive_maps: formData.getAll('archive_maps'),
       uploader: locals.user.id
     };
 

@@ -10,7 +10,15 @@ const es = new Client({
   }
 });
 
-const FACET_FIELDS = ['object_type', 'creator', 'subjects', 'persons', 'boards', 'place'];
+const FACET_FIELDS = [
+  'object_types',
+  'creators',
+  'subjects',
+  'persons',
+  'boards',
+  'places',
+  'archive_maps'
+];
 
 function getFilters(url) {
   const filters = {};
