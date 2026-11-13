@@ -96,7 +96,6 @@
             </ul>
           </div>
         </li>
-        <li><a href="https://bsg100jaar.nl">BSG 100 Jaar</a></li>
         <li><a href="/fotos">Foto's</a></li>
         <li><a href="/competities">Competities</a></li>
         <li><a href="/verkoop">Verkoop</a></li>
