@@ -18,27 +18,30 @@ export const handle = async ({ event, resolve }) => {
 
     event.locals.pb.autoCancellation(false);
 
-    if (event.locals.pb.authStore.isValid && event.locals.pb.authStore.model.collectionId) {
+    if (
+      event.locals.pb.authStore.isValid &&
+      event.locals.pb.authStore.model?.collectionName === '_superusers'
+    ) {
       try {
-        if (event.locals.pb.authStore.model.collectionName === 'users') {
-          await event.locals.pb.collection('users').authRefresh();
-        }
+        await event.locals.pb.collection('_superusers').authRefresh();
+        event.locals.user = structuredClone(event.locals.pb.authStore.model);
       } catch (error) {
         console.log(error);
-        event.cookies.delete('pb_auth', { path: '/' });
+        event.locals.pb.authStore.clear();
+        event.locals.user = undefined;
       }
-
-      event.locals.user = structuredClone(event.locals.pb.authStore.model);
     } else {
+      event.locals.pb.authStore.clear();
       event.locals.user = undefined;
     }
   } catch (error) {
     console.log(error);
-    event.cookies.delete('pb_auth', { path: '/' });
+    event.locals.pb.authStore.clear();
+    event.locals.user = undefined;
   }
 
   const response = await resolve(event);
-  response.headers.set(
+  response.headers.append(
     'set-cookie',
     event.locals.pb.authStore.exportToCookie().replace('SameSite=Strict', 'SameSite=Lax')
   );
