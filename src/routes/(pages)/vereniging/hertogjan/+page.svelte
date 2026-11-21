@@ -20,6 +20,7 @@
       Hoe zong men 't allen kant<br />
       Harbalorifa, zong den Hertog, Harbalorifa<br />
       Na zevenhonderd jaren<br />
+      In dit edel Brabants land
     </p>
 
     <p class="my-4">
