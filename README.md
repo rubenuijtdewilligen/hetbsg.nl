@@ -1,38 +1,26 @@
-# sv
+# hetbsg.nl
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Website with simple content management system for Wageningen student association **Het Brabants Studenten Gilde van Onze Lieve Vrouw (BSG)**. Built with **SvelteKit** (Svelte 5), **Tailwind CSS v4 / DaisyUI**, and **PocketBase**.
 
-## Creating a project
+## Features
 
-If you're seeing this, you've probably already done this step. Congrats!
+- **Public website (`/`)**:
+  - Association overview and history pages
+  - Password-protected photo album portal (`/fotos`).
+  - Card game competition standings, rules, and hall of fame for _Rikken_ and _Stiefelen_ (`/competities`).
+- **Admin panel (`/admin`)**:
+  - Manage general settings (board contacts, member/committee counts, mailing list URL, photo album password) and downloadable PDFs/files (committee list, _Rikken_ rules & standings).
+  - Create and delete boards, example committees, activities, photo album links, merchandise products, _Landdagen_ tiles, chapels, and competition winners.
 
-```bash
-# create a new project in the current directory
-npx sv create
+## Prerequisites
 
-# create a new project in my-app
-npx sv create my-app
-```
+- **Node.js** 20+
+- **PocketBase**
 
-## Developing
+## Local Setup
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+1. **Install dependencies:**
 
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+   ```bash
+   npm install
+   ```
